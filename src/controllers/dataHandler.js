@@ -8,7 +8,7 @@ function formatPricing(priceList) {
       date: parseISOString(arrayItem[0]),
       price: insertDecimal(arrayItem[1]),
     }
-    formattedData.push(obj)
+    formattedData.unshift(obj)
   })
   return formattedData
 }

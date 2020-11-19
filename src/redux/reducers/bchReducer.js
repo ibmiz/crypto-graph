@@ -30,7 +30,7 @@ const bchReducer = (state = initalState, action) => {
     case type.CHANGE_RANGE_REQUESTED:
       return {
         ...state,
-        priceHistory: state.storedPricing.slice(0, parseInt(action.payload)),
+        priceHistory: state.storedPricing.slice(state.storedPricing.length-parseInt(action.payload)),
       }
     case type.CHANGE_RANGE_FAIL:
       return { ...state, error: action.message, loading: false, success: false }
