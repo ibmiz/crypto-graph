@@ -1,12 +1,12 @@
 import React, {useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getBCHCurrentPrice } from '../redux/actions/bch'
+import { getBCHCurrentPrice } from '../../redux/actions/bch'
 
-import {insertDecimal} from '../controllers/dataHandler'
+import {insertDecimal} from '../../controllers/dataHandler'
 
 
-function Header() {
+function Price() {
   const currentPrice = useSelector((state) => state.bchReducer.currentPrice)
   const priceLoading = useSelector((state) => state.bchReducer.priceLoading)
 
@@ -22,4 +22,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Price

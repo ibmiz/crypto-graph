@@ -60,11 +60,18 @@ function News() {
   useEffect(() => {
     dispatch(getNews())
   }, [])
+
   return (
     <Container>
       <h1>News</h1>
-      {loading && <p>Loading News...</p>}
-      {!loading &&
+      {loading && !success && <p>Loading News...</p>}
+      {!loading && !success && (
+        <div>
+          <p>Failed to load news. Please try again</p>{' '}
+          <button onClick={() => dispatch(getNews())}>Retry</button>
+        </div>
+      )}
+      {!loading && success && 
         newsFeed.map((article) => (
           <NewsSection>
             <Link href={article.link}>

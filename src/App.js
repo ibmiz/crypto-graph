@@ -1,10 +1,11 @@
 import React from 'react'
 import './App.css'
 
-import Graph from './components/Graph'
+import Home from './components/Home/Home'
 import News from './components/News'
-import Header from './components/Header'
 import styled from 'styled-components'
+import Navbar from './components/Navbar'
+import {Route, Switch } from 'react-router-dom'
 
 const Wrapper = styled.section`
   padding: 1em;
@@ -19,14 +20,16 @@ const Wrapper = styled.section`
 `
 
 function App() {
-  return (
+  return (     
+    <> 
+  <Navbar/>
     <Wrapper>
-      <Header />
-      <div className="container">
-        <Graph />
-        <News/>
-      </div>
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/news" component={News} />
+      </Switch>
     </Wrapper>
+    </>
   )
 }
 

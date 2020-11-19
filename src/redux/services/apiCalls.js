@@ -4,6 +4,7 @@ import {handleNewsData} from '../../controllers/dataHandler'
 let Parser = require('rss-parser');
 
 const apiEndpoint = 'https://index-api.bitcoin.com/api/v0'
+const newsEndpoint = 'https://news.bitcoin.com/feed/'
 
 export async function getBCHHistoryPrices() {
     const result = await axios.get(`${apiEndpoint}/cash/history`)
@@ -18,7 +19,7 @@ export async function getCurrentBCHPrice() {
 
 export async function getNewsFeed(){
     let parser = new Parser();
-    let feed = await parser.parseURL('https://news.bitcoin.com/feed/');
+    let feed = await parser.parseURL(newsEndpoint);
     console.log(feed);
     return handleNewsData(feed);
 }
