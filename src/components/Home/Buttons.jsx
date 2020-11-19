@@ -10,14 +10,14 @@ const ButtonWrapper = styled.section`
 // Change background colour if active 
 const CustomButton = styled.button`
   background: ${(props) =>
-    props.value === props.active ? 'palevioletred' : 'white'};
+    props.value === props.active ? '#C10A3D' : 'white'};
   color: ${(props) =>
-    props.value === props.active ? 'white' : 'palevioletred'};
+    props.value === props.active ? 'white' : '#C10A3D'};
 
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;
-  border: 2px solid palevioletred;
+  border: 2px solid white;
   border-radius: 3px;
   cursor: pointer;
 `

@@ -6,9 +6,7 @@ import styled from 'styled-components'
 const NavBarWrapper = styled.header`
   display: flex;
   align-items: center;
-  // background: linear-gradient(90deg, rgba(136,132,216,0.8) 5%, rgba(136,132,216,0) 95%);
-  background: linear-gradient(180deg, rgba(136,132,216,0.8) 5%, rgba(40,44,52,1) 95%);
-  background: #8884d8;
+  background: #0ac18e;
   color: white;
   font-family: Helvetica;
   font-weight: 300;
@@ -18,24 +16,24 @@ const Title = styled.div`
   margin-right: auto;
   font-size: 150%;
   padding: 12px 16px;
+  color: black;
 `
 
-const NavLink = styled.div`
+const NavLink = styled(Link)`
   padding: 16px 16px;
   cursor: pointer;
   vertical-align: middle;
+  font-size: 1.1rem;
+  color: black;
+  text-decoration: none;
 `
 
 function Navbar() {
   return (
     <NavBarWrapper>
       <Title>Crypto Graph</Title>
-      <NavLink>
-        <Link to="/">Home</Link>
-      </NavLink>
-      <NavLink>
-        <Link to="/news">News</Link>
-      </NavLink>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/news">News</NavLink>
     </NavBarWrapper>
   )
 }

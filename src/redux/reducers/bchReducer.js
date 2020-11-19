@@ -7,6 +7,8 @@ let initalState = {
   success: false,
   currentPrice: 0,
   error: null,
+  priceLoading: false,
+  priceSuccess: false
 }
 const bchReducer = (state = initalState, action) => {
   switch (action.type) {
@@ -42,9 +44,10 @@ const bchReducer = (state = initalState, action) => {
         ...state,
         currentPrice: action.currentPrice,
         priceLoading: false,
+        priceSuccess: true
       }
     case type.BCH_CURRENT_PRICE_FAIL:
-      return { ...state, error: action.message, loading: false }
+      return { ...state, error: action.message, priceLoading: false, priceSuccess: false }
     default:
       return state
   }

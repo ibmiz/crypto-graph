@@ -11,14 +11,14 @@ const newsReducer = (state = initalState, action) => {
     // Getting Price History
     case type.GET_NEWS_FEED_REQUESTED:
       return { ...state, loading: true }
-    case type.GET_NEW_FEED_SUCCESS:
+    case type.GET_NEWS_FEED_SUCCESS:
       return {
         ...state,
         newsFeed: action.payload,
         loading: false,
         success: true,
       }
-    case type.GET_NEW_FEED_FAIL:
+    case type.GET_NEWS_FEED_FAIL:
       return { ...state, loading: false, success: false }
     default:
       return state

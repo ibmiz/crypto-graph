@@ -23,8 +23,17 @@ function parseISOString(s) {
   return d.getDate() + '/' + d.getMonth()
 }
 
+//https://stackoverflow.com/questions/12393671/substring-regex-to-get-a-src-value-held-in-a-string
 function handleNewsData(newsFeed) {
-    return newsFeed.items.slice(0,4)
+    let slicedNews = newsFeed.items.slice(0,4)
+    var regex = /<img.*?src=['"](.*?)['"]/;
+    console.log(slicedNews);
+    slicedNews.forEach(function (arrayItem, index) {
+      let imgSrc = regex.exec(arrayItem["content:encoded"])[1]
+      slicedNews[index]["imgSrc"] = imgSrc
+    })
+    console.log(slicedNews)
+    return slicedNews;
 }
 
 exports.formatPricing = formatPricing

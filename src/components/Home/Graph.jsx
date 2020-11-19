@@ -13,8 +13,8 @@ function Graph() {
     >
       <defs>
         <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="5%" stopColor="#8884d8" stopOpacity={0.8} />
-          <stop offset="95%" stopColor="#8884d8" stopOpacity={0} />
+          <stop offset="5%" stopColor="#0AC18E" stopOpacity={0.8} />
+          <stop offset="95%" stopColor="#0AC18E" stopOpacity={0} />
         </linearGradient>
       </defs>
       <XAxis tick={{ fontSize: '1rem' }} dataKey="date" />
@@ -26,11 +26,11 @@ function Graph() {
         tick={{ fontSize: '1rem' }}
       />
       <CartesianGrid strokeDasharray="3 3" />
-      <Tooltip />
+      <Tooltip stroke="green" />
       <Area
         type="monotone"
         dataKey="price"
-        stroke="#8884d8"
+        stroke="black"
         fillOpacity={1}
         fill="url(#colorUv)"
       />

@@ -6,13 +6,17 @@ import { getNews } from '../redux/actions/news'
 import styled from 'styled-components'
 
 const Container = styled.section`
-  padding: 1em;
   width: 50%;
 `
-const NewsSection = styled.section`
+
+const Title = styled.h1`
+text-align: center;
+`
+const NewsSection = styled.div`
   background-color: white;
   margin: 1em;
   padding: 1em;
+  border-radius: 15px;
 `
 const Date = styled.div`
   color: grey;
@@ -25,10 +29,11 @@ const Description = styled.p`
   font-weight: 300;
   font-size: 1rem;
 `
-const Title = styled.h5`
-  color: palevioletred;
+const NewsTitle = styled.h5`
+  color: #c10a3d;
   text-decoration: none;
   font-size: 1.3rem;
+  margin: 0;
   &:hover {
     text-decoration: none;
     color: black;
@@ -39,21 +44,29 @@ const Link = styled.a`
   cursor: pointer;
 `
 
-const DateAuthor = styled.div`
+const DateAuthorWrapper = styled.div`
   color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+`
+
+const Author = styled.p`
+  font-size: 1rem;
+  margin: 0;
   display: flex;
 `
 
-const Creator = styled.p`
-  font-size: 1rem;
-  margin: 10px;
+const ArticleImg = styled.img`
+max-width:100%;
+max-height:100%;
+border-radius: 15px;
 `
 
 function News() {
   const newsFeed = useSelector((state) => state.newsReducer.newsFeed)
   const loading = useSelector((state) => state.newsReducer.loading)
   const success = useSelector((state) => state.newsReducer.success)
-  const error = useSelector((state) => state.newsReducer.error)
 
   const dispatch = useDispatch()
 
@@ -63,7 +76,7 @@ function News() {
 
   return (
     <Container>
-      <h1>News</h1>
+      <Title>News</Title>
       {loading && !success && <p>Loading News...</p>}
       {!loading && !success && (
         <div>
@@ -71,16 +84,18 @@ function News() {
           <button onClick={() => dispatch(getNews())}>Retry</button>
         </div>
       )}
-      {!loading && success && 
+      {!loading &&
+        success &&
         newsFeed.map((article) => (
           <NewsSection>
+            <ArticleImg src={article.imgSrc}></ArticleImg>
             <Link href={article.link}>
-              <Title>{article.title}</Title>
+              <NewsTitle>{article.title}</NewsTitle>
             </Link>
-            <DateAuthor>
-              <Creator>{article.creator}</Creator>
+            <DateAuthorWrapper>
+              <Author>{article.creator}</Author>
               <Date>{article.isoDate.slice(0, 10)}</Date>
-            </DateAuthor>
+            </DateAuthorWrapper>
             <Description>{article.contentSnippet}</Description>
           </NewsSection>
         ))}

@@ -5,10 +5,16 @@ import { getBCHCurrentPrice } from '../../redux/actions/bch'
 
 import {insertDecimal} from '../../controllers/dataHandler'
 
+import styled from 'styled-components'
 
+const PriceTitle = styled.h2`
+color: ${props => props.theme.main};
+margin: 0;
+`
 function Price() {
   const currentPrice = useSelector((state) => state.bchReducer.currentPrice)
   const priceLoading = useSelector((state) => state.bchReducer.priceLoading)
+  const priceSuccess = useSelector((state) => state.bchReducer.priceSuccess)
 
   const dispatch = useDispatch()
 
@@ -16,9 +22,9 @@ function Price() {
     dispatch(getBCHCurrentPrice())
   }, [])
   return (
-    <h1>
-      Bitcoin Cash Price: {priceLoading ? '...' : '$' + insertDecimal(currentPrice).toString()}
-    </h1>
+    <PriceTitle theme={{ main: "white" }}>
+      Bitcoin Cash Price: {priceLoading && priceSuccess ? '...' : '$' + insertDecimal(currentPrice).toString()}
+    </PriceTitle>
   )
 }
 

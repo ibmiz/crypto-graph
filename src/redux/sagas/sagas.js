@@ -32,9 +32,9 @@ function* updateRange(action){
 function* getLatestNews(action){
    try{
       const news = yield call(getNewsFeed);
-      yield put({type: "GET_NEW_FEED_SUCCESS", payload: news})
+      yield put({type: "GET_NEWS_FEED_SUCCESS", payload: news})
    } catch(e){
-      yield put({type: "GET_NEW_FEED_FAIL", message: e.message});
+      yield put({type: "GET_NEWS_FEED_FAIL", message: e.message});
    }
 }
 

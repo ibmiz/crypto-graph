@@ -8,7 +8,7 @@ import Navbar from './components/Navbar'
 import {Route, Switch } from 'react-router-dom'
 
 const Wrapper = styled.section`
-  padding: 1em;
+  padding: 0.5rem;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -17,6 +17,8 @@ const Wrapper = styled.section`
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: Helvetica;
+
 `
 
 function App() {
