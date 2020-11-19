@@ -20,7 +20,7 @@ function Price() {
 
   useEffect(() => {
     dispatch(getBCHCurrentPrice())
-  }, [])
+  }, [dispatch])
   return (
     <PriceTitle theme={{ main: "white" }}>
       Bitcoin Cash Price: {priceLoading && priceSuccess ? '...' : '$' + insertDecimal(currentPrice).toString()}

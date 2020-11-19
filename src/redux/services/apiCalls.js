@@ -20,6 +20,5 @@ export async function getCurrentBCHPrice() {
 export async function getNewsFeed(){
     let parser = new Parser();
     let feed = await parser.parseURL(newsEndpoint);
-    console.log(feed);
     return handleNewsData(feed);
 }

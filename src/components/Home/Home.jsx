@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import Price from './Price'
@@ -15,7 +15,7 @@ function Home() {
 
   useEffect(() => {
     dispatch(getBCHHistoryPrices())
-  }, [])
+  }, [dispatch])
 
   return (
     <>

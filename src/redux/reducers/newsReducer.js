@@ -8,7 +8,6 @@ let initalState = {
 }
 const newsReducer = (state = initalState, action) => {
   switch (action.type) {
-    // Getting Price History
     case type.GET_NEWS_FEED_REQUESTED:
       return { ...state, loading: true }
     case type.GET_NEWS_FEED_SUCCESS:

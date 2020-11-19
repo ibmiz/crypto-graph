@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, {useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import { getNews } from '../redux/actions/news'
@@ -72,7 +72,7 @@ function News() {
 
   useEffect(() => {
     dispatch(getNews())
-  }, [])
+  }, [dispatch])
 
   return (
     <Container>
@@ -87,7 +87,7 @@ function News() {
       {!loading &&
         success &&
         newsFeed.map((article) => (
-          <NewsSection>
+          <NewsSection key={article.isoDate}>
             <ArticleImg src={article.imgSrc}></ArticleImg>
             <Link href={article.link}>
               <NewsTitle>{article.title}</NewsTitle>
