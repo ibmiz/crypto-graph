@@ -5,11 +5,12 @@ import Home from './components/Home/Home'
 import News from './components/News'
 import styled from 'styled-components'
 import Navbar from './components/Navbar'
-import {Route, Switch } from 'react-router-dom'
+import {Route, Switch, Redirect} from 'react-router-dom'
+
 
 const Wrapper = styled.section`
   padding: 0.5rem;
-  background-color: #282c34;
+  background-color: #1A1A1D;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -18,21 +19,21 @@ const Wrapper = styled.section`
   font-size: calc(10px + 2vmin);
   color: white;
   font-family: Helvetica;
-
 `
 
 function App() {
-  return (     
-    <> 
-  <Navbar/>
-    <Wrapper>
-      <Switch>
-        <Route path="/" component={Home} exact />
-        <Route path="/news" component={News} />
-      </Switch>
-    </Wrapper>
-    </>
-  )
+    return (
+        <>
+            <Navbar/>
+            <Wrapper>
+                <Switch>
+                    <Route path="/home" component={Home}/>
+                    <Route path="/news" component={News}/>
+                    <Redirect to="/home"/>
+                </Switch>
+            </Wrapper>
+        </>
+    )
 }
 
 export default App

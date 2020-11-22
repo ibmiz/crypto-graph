@@ -23,7 +23,7 @@ function Price() {
   }, [dispatch])
   return (
     <PriceTitle theme={{ main: "white" }}>
-      Bitcoin Cash Price: {priceLoading && priceSuccess ? '...' : '$' + insertDecimal(currentPrice).toString()}
+      Current BCH Price: {priceLoading && priceSuccess ? '...' : '$' + insertDecimal(currentPrice).toString()}
     </PriceTitle>
   )
 }
