@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 
 import styled from 'styled-components'
 
@@ -20,7 +20,7 @@ const Title = styled.div`
 
 const activeClassName = 'active';
 const LinkElement = styled(NavLink).attrs({
-  activeClassName,
+    activeClassName,
 })`
   padding: 16px 16px;
   cursor: pointer;
@@ -34,18 +34,19 @@ const LinkElement = styled(NavLink).attrs({
   }
   &.${activeClassName} {
     text-decoration: none;
-    color: ${props => props.theme.color }
+    color: ${props => props.theme.color}
   }
 `
 
 function Navbar() {
-  return (
-    <NavBarWrapper>
-      <Title>Crypto Graph</Title>
-        <LinkElement theme={{ color: "white" }} to="/home">Home</LinkElement>
-        <LinkElement theme={{ color: "white" }} to="/news">News</LinkElement>
-    </NavBarWrapper>
-  )
+    return (
+        <NavBarWrapper>
+            <Title>Crypto Graph</Title>
+            {/*Home Shows BCH current price and price history*/}
+            <LinkElement theme={{color: "white"}} to="/home">Home</LinkElement>
+            <LinkElement theme={{color: "white"}} to="/news">News</LinkElement>
+        </NavBarWrapper>
+    )
 }
 
 export default Navbar

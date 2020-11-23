@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { useDispatch } from 'react-redux'
+import React, {useState} from 'react'
+import {useDispatch} from 'react-redux'
 import styled from 'styled-components'
-import { changeRange } from '../../redux/actions/bch'
+import {changeRange} from '../../redux/actions/bch'
 
 const ButtonWrapper = styled.section`
   width: 100%;
@@ -21,49 +21,51 @@ const CustomButton = styled.button`
   border-radius: 3px;
   cursor: pointer;
 `
+
+// Customisable button list for graph range
 function Buttons() {
-  const btnList = [
-    {
-      id: 1,
-      value: 1,
-      title: '1 Day',
-      isDefault: false,
-    },
-    {
-      id: 2,
-      value: 7,
-      title: '7 Days',
-      isDefault: false,
-    },
-    {
-      id: 3,
-      value: 30,
-      title: '30 Days',
-      isDefault: true,
-    },
-  ]
-  const dispatch = useDispatch()
+    const btnList = [
+        {
+            id: 1,
+            value: 1,
+            title: '1 Day',
+            isDefault: false,
+        },
+        {
+            id: 2,
+            value: 7,
+            title: '7 Days',
+            isDefault: false,
+        },
+        {
+            id: 3,
+            value: 30,
+            title: '30 Days',
+            isDefault: true,
+        },
+    ]
+    const dispatch = useDispatch()
 
-  const [activeButtonId, setActiveButtonId] = useState(btnList[2].value)
+    const [activeButtonId, setActiveButtonId] = useState(btnList[2].value)
 
-  const handleButtonClick = (event) => {
-    setActiveButtonId(Number(event.target.value))
-    dispatch(changeRange(event.target.value))
-  }
-  return (
-    <ButtonWrapper>
-      {btnList.map((btn) => (
-        <CustomButton
-          key={btn.id}
-          value={btn.value}
-          active={activeButtonId}
-          onClick={handleButtonClick}
-        >
-          {btn.title}
-        </CustomButton>
-      ))}
-    </ButtonWrapper>
-  )
+    const handleButtonClick = (event) => {
+        setActiveButtonId(Number(event.target.value))
+        dispatch(changeRange(event.target.value))
+    }
+    return (
+        <ButtonWrapper>
+            {btnList.map((btn) => (
+                <CustomButton
+                    key={btn.id}
+                    value={btn.value}
+                    active={activeButtonId}
+                    onClick={handleButtonClick}
+                >
+                    {btn.title}
+                </CustomButton>
+            ))}
+        </ButtonWrapper>
+    )
 }
 
 export default Buttons

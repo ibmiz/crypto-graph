@@ -1,9 +1,9 @@
-import { combineReducers} from "redux";
+import {combineReducers} from "redux";
 // Reducer
 import bchReducer from "./bchReducer.js";
 import newsReducer from "./newsReducer.js";
 
 export default combineReducers({
-    bchReducer, 
+    bchReducer,
     newsReducer
 });

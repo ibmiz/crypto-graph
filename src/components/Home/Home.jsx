@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 
-import Price from './Price'
+import CurrentPrice from './CurrentPrice'
 import Buttons from './Buttons'
 import Graph from './Graph'
 import {getBCHHistoryPrices} from '../../redux/actions/bch'
@@ -34,7 +34,8 @@ function Home() {
 
     return (
         <>
-            <Price/>
+            <CurrentPrice/>
+
             {loading && !success && <p>Loading Price History...</p>}
             {!loading && !success && (
                 <div>

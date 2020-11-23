@@ -5,7 +5,7 @@ import Home from './components/Home/Home'
 import News from './components/News'
 import styled from 'styled-components'
 import Navbar from './components/Navbar'
-import {Route, Switch, Redirect} from 'react-router-dom'
+import {Redirect, Route, Switch} from 'react-router-dom'
 
 
 const Wrapper = styled.section`
